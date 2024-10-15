@@ -110,7 +110,7 @@ class Main : IXposedHookZygoteInit, IXposedHookLoadPackage, IXposedHookInitPacka
             try {
                 resparam.res.setReplacement("com.discord", "color", key, value)
             } catch (_: Exception) {
-                Log.i("Vendetta", "No color resource with $key")
+                Log.i("Opti", "No color resource with $key")
             }
         }
     }
@@ -205,7 +205,7 @@ class Main : IXposedHookZygoteInit, IXposedHookLoadPackage, IXposedHookInitPacka
 
         val patch = object : XC_MethodHook() {
             override fun beforeHookedMethod(param: MethodHookParam) {
-                val url = if (config.customLoadUrl.enabled) config.customLoadUrl.url else "https://raw.githubusercontent.com/vendetta-mod/builds/master/vendetta.js"
+                val url = if (config.customLoadUrl.enabled) config.customLoadUrl.url else "https://raw.githubusercontent.com/opti-mod/builds/master/vendetta.js"
                 try {
                     val conn = URL(url).openConnection() as HttpURLConnection
                     conn.connectTimeout = 3000
