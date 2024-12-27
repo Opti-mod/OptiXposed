@@ -154,7 +154,7 @@ class Main : IXposedHookZygoteInit, IXposedHookLoadPackage, IXposedHookInitPacka
             config = LoaderConfig(
                 customLoadUrl = CustomLoadUrl(
                     enabled = false,
-                    url = "http://localhost:4040/vendetta.js"
+                    url = "http://localhost:4040/opti.js"
                 ),
                 loadReactDevTools = false
             )
@@ -205,7 +205,7 @@ class Main : IXposedHookZygoteInit, IXposedHookLoadPackage, IXposedHookInitPacka
 
         val patch = object : XC_MethodHook() {
             override fun beforeHookedMethod(param: MethodHookParam) {
-                val url = if (config.customLoadUrl.enabled) config.customLoadUrl.url else "https://raw.githubusercontent.com/opti-mod/builds/master/vendetta.js"
+                val url = if (config.customLoadUrl.enabled) config.customLoadUrl.url else "https://raw.githubusercontent.com/opti-mod/builds/master/opti.js"
                 try {
                     val conn = URL(url).openConnection() as HttpURLConnection
                     conn.connectTimeout = 3000
