@@ -139,9 +139,9 @@ class Main : IXposedHookLoadPackage {
 
                 val url = 
                     if (config.customLoadUrl.enabled) config.customLoadUrl.url 
-                    else "https://raw.githubusercontent.com/Opti-mod/OptiUpdated/dist/bunny.js"
+                    else "https://raw.githubusercontent.com/Opti-mod/OptiUpdated/main/dist/bunny.js"
 
-                Log.e("Bunny", "Fetching JS bundle from $url")
+                Log.e("Opti", "Fetching JS bundle from $url")
                 
                 val response: HttpResponse = client.get(url) {
                     headers { 
@@ -169,7 +169,7 @@ class Main : IXposedHookLoadPackage {
                     activity.runOnUiThread {
                         Toast.makeText(
                             activity.applicationContext,
-                            "Failed to fetch JS bundle, Bunny may not load!",
+                            "Failed to fetch JS bundle, Opti may not load!",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
