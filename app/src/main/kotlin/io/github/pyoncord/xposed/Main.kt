@@ -175,7 +175,7 @@ class Main : IXposedHookLoadPackage {
                     }
                 }
 
-                Log.e("Bunny", "Failed to download bundle", e)
+                Log.e("Opti", "Failed to download bundle", e)
             }
         }
 
